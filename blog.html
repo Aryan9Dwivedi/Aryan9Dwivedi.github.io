@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog • TL;DR Tech Bite</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="img/favicon.ico">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="index.html">$ Aryan<span class="cursor">▇</span></a>
+  <nav>
+    <a href="blog.html" style="color:var(--green)">BLOG</a><a href="techfolio.html">TECHFOLIO</a><a href="resume.html">PUBLICATIONS & RESUME</a><a href="contact.html">REACH ME OUT</a>
+  </nav>
+</header>
+
+<main class="container">
+  <!-- Terminal window hero -->
+  <section class="page-hero">
+    <div class="term">
+      <div class="term__bar">
+        <span class="dot dot--red"></span>
+        <span class="dot dot--yellow"></span>
+        <span class="dot dot--green"></span>
+      </div>
+      <div class="term__body">
+        <div class="term__prompt">$ echo <span class="type">'TL;DR Tech Bite — shipping weekly'</span></div>
+        <p class="muted" style="margin:.4rem 0 0;">Short, dense notes on what I'm building & learning. New post every week.</p>
+
+        <!-- Subscribe on blog page -->
+        <form action="https://buttondown.email/YOUR_HANDLE/subscribe" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/YOUR_HANDLE/subscribe','popupwindow')" style="display:flex; gap:8px; margin-top:12px; max-width:540px;">
+          <input class="input" type="email" name="email" placeholder="you@northwestern.edu" required>
+          <button class="btn btn--accent" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Posts list -->
+  <section class="section">
+    <!-- Newest first -->
+    <div id="hello-world" class="card reveal" data-reveal data-delay="0">
+      <h3>Hello, world — why this site exists</h3>
+      <p>Public learning journal + portfolio hub. Weekly TL;DR drops.</p>
+      <pre><code>def hello(name): return f"Hello, {name}!"</code></pre>
+    </div>
+
+    <div id="rgv-dispatch" class="card reveal" data-reveal data-delay="80" style="margin-top:14px;">
+      <h3>RGV dispatch: greedy vs cost-aware</h3>
+      <p>Quick benchmark and what surprised me in simulation.</p>
+      <ul>
+        <li>Greedy wins on tiny queues</li>
+        <li>Cost-aware reduces deadhead at scale</li>
+      </ul>
+    </div>
+
+    <div id="chowrider-heuristics" class="card reveal" data-reveal data-delay="160" style="margin-top:14px;">
+      <h3>ChowRider search heuristics</h3>
+      <p>A*, best-first, and when “simple” beats “smart”.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer container">
+  <div>© <span id="y"></span> Aryan Dwivedi</div><div><a href="index.html">Home</a></div>
+</footer>
+
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<script>
+  // stronger, staggered scroll-reveal
+  const els = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const delay = Number(e.target.dataset.delay||0);
+        setTimeout(()=>{ e.target.classList.add('show'); }, delay);
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:.12});
+  els.forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Techfolio — Projects & Work</title>
+  <link rel="stylesheet" href="css/styles.css"><link rel="icon" href="img/favicon.ico">
+  <style>
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 6px}
+    .pill{padding:.35rem .7rem;border:1px solid #2a3b57;border-radius:999px;background:#0e1523;color:#e6edf3;cursor:pointer}
+    .pill[aria-pressed="true"]{border-color:#355a99;box-shadow:0 0 0 2px rgba(53,90,153,.25) inset}
+    .card[data-hidden="true"]{display:none}
+    .card .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:.6rem}
+    .meta{color:var(--muted);font-size:.9rem;margin-top:.4rem}
+  </style>
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="index.html">$ Aryan<span class="cursor">▇</span></a>
+  <nav>
+    <a href="blog.html">BLOG</a><a href="techfolio.html" style="color:var(--green)">TECHFOLIO</a><a href="resume.html">PUBLICATIONS & RESUME</a><a href="contact.html">REACH ME OUT</a>
+  </nav>
+</header>
+
+<main class="container">
+  <!-- Terminal-style page hero -->
+  <section class="page-hero">
+    <div class="term">
+      <div class="term__bar">
+        <span class="dot dot--red"></span>
+        <span class="dot dot--yellow"></span>
+        <span class="dot dot--green"></span>
+      </div>
+      <div class="term__body">
+        <div class="term__prompt">$ ls projects/ <span class="type">rgv  chowrider  …</span></div>
+        <p class="muted" style="margin:.4rem 0 0;">Curated builds. <b>Code → GitHub</b>, <b>Write-up → blog/README</b>. Use filters to focus.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h1>Projects & Work</h1>
+
+    <!-- Filters -->
+    <div class="filters" role="toolbar" aria-label="Project filters">
+      <button class="pill" data-filter="all" aria-pressed="true">All</button>
+      <button class="pill" data-filter="ml">AI/ML</button>
+      <button class="pill" data-filter="search">Search</button>
+      <button class="pill" data-filter="systems">Systems</button>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid">
+      <!-- RGV -->
+      <div class="card reveal" data-reveal data-delay="0" data-tags="ml,systems,python">
+        <div class="tag">Python • ML</div>
+        <h3>RGV Fleet Management Simulator</h3>
+        <p>Dynamic task assignment with greedy + cost-aware dispatch. Simulation loop in C# with Django endpoints.</p>
+        <div class="meta">Stack: Python, C#, Django • Status: Active</div>
+        <p class="actions">
+          <!-- TODO: replace with your repo URL -->
+          <a class="btn btn--ghost" href="https://github.com/Aryan9Dwivedi" target="_blank" rel="noopener">Code →</a>
+          <a class="btn" href="blog.html#rgv-dispatch">Write-up →</a>
+        </p>
+      </div>
+
+      <!-- ChowRider -->
+      <div class="card reveal" data-reveal data-delay="80" data-tags="search,python">
+        <div class="tag">Search • Graphs</div>
+        <h3>ChowRider: A*, BFS/DFS, Best-First</h3>
+        <p>Classic search algorithms with benchmarks and profiling. Focus on heuristic tuning and memory.</p>
+        <div class="meta">Stack: Python • Status: Stable</div>
+        <p class="actions">
+          <!-- TODO: replace with your repo URL -->
+          <a class="btn btn--ghost" href="https://github.com/Aryan9Dwivedi" target="_blank" rel="noopener">Code →</a>
+          <a class="btn" href="blog.html#chowrider-heuristics">Write-up →</a>
+        </p>
+      </div>
+
+      <!-- Example placeholder (duplicate for new projects) -->
+      <!--
+      <div class="card reveal" data-reveal data-delay="160" data-tags="ml,systems">
+        <div class="tag">AI • Systems</div>
+        <h3>Project Name</h3>
+        <p>One-sentence value prop of the project (what it does + why it matters).</p>
+        <div class="meta">Stack: … • Status: …</div>
+        <p class="actions">
+          <a class="btn btn--ghost" href="https://github.com/your-user/your-repo" target="_blank" rel="noopener">Code →</a>
+          <a class="btn" href="https://github.com/your-user/your-repo#readme" target="_blank" rel="noopener">Write-up →</a>
+        </p>
+      </div>
+      -->
+    </div>
+  </section>
+</main>
+
+<footer class="footer container">
+  <div>© <span id="y"></span> Aryan Dwivedi</div><div><a href="index.html">Home</a></div>
+</footer>
+
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+<script>
+  // stronger, staggered scroll-reveal
+  const els = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const delay = Number(e.target.dataset.delay||0);
+        setTimeout(()=>{ e.target.classList.add('show'); }, delay);
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:.12});
+  els.forEach(el=>io.observe(el));
+
+  // filters
+  const pills = document.querySelectorAll('.pill');
+  const cards = document.querySelectorAll('.card[data-tags]');
+  function applyFilter(tag){
+    cards.forEach(c=>{
+      const tags = (c.getAttribute('data-tags')||'').toLowerCase();
+      const show = (tag==='all') || tags.includes(tag);
+      c.setAttribute('data-hidden', show ? 'false' : 'true');
+    });
+  }
+  pills.forEach(b=>{
+    b.addEventListener('click', ()=>{
+      pills.forEach(p=>p.setAttribute('aria-pressed','false'));
+      b.setAttribute('aria-pressed','true');
+      applyFilter(b.dataset.filter);
+    });
+  });
+</script>
+</body>
+</html>

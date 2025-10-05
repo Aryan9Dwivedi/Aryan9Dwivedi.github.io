@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aryan • Techfolio & Blog</title>
+  <meta name="description" content="Weekly TL;DR tech bites + project log. GitHub × terminal aesthetic.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="img/favicon.ico">
+  <meta property="og:image" content="img/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="index.html">$ Aryan<span class="cursor">▇</span></a>
+    <nav>
+      <a href="blog.html">BLOG</a>
+      <a href="techfolio.html">TECHFOLIO</a>
+      <a href="resume.html">PUBLICATIONS & RESUME</a>
+      <a href="contact.html">REACH ME OUT</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <img class="avatar" src="img/headshot.jpg" alt="Aryan Dwivedi headshot">
+      <div>
+		  <h1>Hi, I’m Aryan — MS AI @ Northwestern</h1>
+<p class="muted" style="margin:.2rem 0 0">
+  I build small, useful AI systems and write weekly TL;DRs about what actually worked.
+</p>
+        <div class="cta" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <a class="btn btn--primary" href="blog.html">Read the Blog</a>
+          <a class="btn" href="techfolio.html">See Projects</a>
+          <a class="btn btn--accent" href="resume.html">Publications & Resume</a>
+        </div>
+        <form action="https://buttondown.email/your-handle/subscribe" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/your-handle/subscribe','popupwindow')" style="display:flex; gap:8px; margin-top:12px;">
+          <input class="input" type="email" name="email" placeholder="you@northwestern.edu" required>
+          <button class="btn" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+<section class="section">
+  <h2>Picture of the Day</h2>
+  <div class="potd">
+    <figure class="polaroid">
+      <img class="polaroid__img" src="img/potd.jpg" alt="Centennial Wheel at Navy Pier in Chicago">
+      <figcaption class="polaroid__cap">
+        <span>Centennial Wheel — cool wind, bright lights.</span>
+        <span class="muted">Chicago • Oct 5, 2025</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+
+
+    <section class="section">
+      <h2>Latest from the blog</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Hello, world — why this site exists</h3>
+          <p>Public learning journal + portfolio hub. Weekly TL;DR drops.</p>
+          <a class="btn" href="blog.html#hello-world">Read</a>
+        </div>
+        <div class="card">
+          <h3>RGV dispatch: greedy vs cost-aware</h3>
+          <p>Quick benchmark and what surprised me in simulation.</p>
+          <a class="btn" href="blog.html#rgv-dispatch">Read</a>
+        </div>
+        <div class="card">
+          <h3>ChowRider search heuristics</h3>
+          <p>A*, best-first, and when “simple” beats “smart”.</p>
+          <a class="btn" href="blog.html#chowrider-heuristics">Read</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <div>© <span id="y"></span> Aryan Dwivedi</div>
+    <div><a href="https://github.com/Aryan9Dwivedi">GitHub</a> • <a href="https://www.linkedin.com">LinkedIn</a></div>
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>

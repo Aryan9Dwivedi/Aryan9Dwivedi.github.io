@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reach Me Out</title>
+  <link rel="stylesheet" href="css/styles.css"><link rel="icon" href="img/favicon.ico">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="index.html">$ Aryan<span class="cursor">▇</span></a>
+  <nav>
+    <a href="blog.html">BLOG</a><a href="techfolio.html">TECHFOLIO</a><a href="resume.html">PUBLICATIONS & RESUME</a><a href="contact.html">REACH ME OUT</a>
+  </nav>
+</header>
+<main class="container">
+  <section class="section">
+    <h1>Contact</h1>
+    <p class="muted">This form emails me directly. I usually reply within a day.</p>
+
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="card" style="margin-top:12px;">
+      <div class="row">
+        <div>
+          <label for="name">Name</label>
+          <input class="input" id="name" name="name" type="text" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input class="input" id="email" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <label for="subject">Subject</label>
+        <input class="input" id="subject" name="subject" type="text" placeholder="Reason for reaching out" required>
+      </div>
+
+      <div style="margin-top:12px;">
+        <label for="message">Message</label>
+        <textarea class="input" id="message" name="message" rows="6" placeholder="Your message…" required></textarea>
+      </div>
+
+      <!-- Optional: honeypot to reduce spam -->
+      <input type="text" name="_gotcha" style="display:none">
+
+      <!-- Optional: redirect after success -->
+      <!-- <input type="hidden" name="_redirect" value="https://aryan9dwivedi.github.io/contact.html?sent=1"> -->
+
+      <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="btn btn--primary" type="submit">Send</button>
+        <a class="btn btn--ghost" href="mailto:your.name@u.northwestern.edu">Or email me directly</a>
+      </div>
+    </form>
+  </section>
+</main>
+<footer class="footer container">
+  <div>© <span id="y"></span> Aryan Dwivedi</div><div><a href="index.html">Home</a></div>
+</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
