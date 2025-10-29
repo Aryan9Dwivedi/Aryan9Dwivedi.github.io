@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aryan — Portfolio & Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500..700&family=Permanent+Marker&family=Rock+Salt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head><body>
+<div class="bg-ambient" aria-hidden="true"></div>
+<header class="navbar">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><span class="brand-caret">❯</span><span class="brand-cursor"></span></span>
+      aryan.dev
+    </a>
+    <nav class="menu">
+      <a href="blog.html" class="badge">Blog</a>
+      <a href="techfolio.html">Techfolio</a>
+      <a href="resume.html">Resume & Pubs</a>
+      <a href="about.html">About</a>
+      <a class="btn pill cta-blog" href="blog.html#subscribe">Subscribe</a>
+    </nav>
+    <button class="burger" aria-label="Menu">☰</button>
+  </div>
+  <div class="mobile-drawer">
+    <a href="blog.html">Blog</a>
+    <a href="techfolio.html">Techfolio</a>
+    <a href="resume.html">Resume & Publications</a>
+    <a href="about.html">About</a>
+    <a href="blog.html#subscribe">Subscribe</a>
+  </div>
+</header>
+<main class="section">
+  <div class="container maxw">
+    <h1>Contact</h1>
+    <p class="dim">Say hi or propose a collaboration.</p>
+    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="mt-4" onsubmit="this.querySelector('button').disabled=true">
+      <label class="mb-1">Your Email</label>
+      <input class="input" type="email" name="email" required>
+      <label class="mb-1 mt-3">Message</label>
+      <textarea class="textarea" name="message" rows="6" required></textarea>
+      <input type="hidden" name="_subject" value="New contact via aryan.dev">
+      <button class="btn pill mt-3">Send</button>
+    </form>
+  </div>
+</main>
+<script src="js/main.js"></script>
+</body></html>
